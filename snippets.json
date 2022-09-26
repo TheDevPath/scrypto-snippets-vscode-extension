@@ -1,0 +1,7 @@
+{
+  "Use Scrypto": {
+    "prefix": "scrypto",
+    "body": ["use scrypto::prelude::*;", "$1"],
+    "description": "Import the Scrypto Library"
+  }
+}

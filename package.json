@@ -3,7 +3,7 @@
   "displayName": "Scrypto Snippets",
   "description": "Snippets for Rust Scrypto Library",
   "version": "0.0.1",
-  "publisher": "DevPath.tech",
+  "publisher": "DevPath",
   "repository": "https://github.com/TheDevPath/scrypto-snippets-vscode-extension",
   "engines": {
     "vscode": "^1.71.0"

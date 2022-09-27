@@ -3,5 +3,26 @@
     "prefix": "scrypto",
     "body": ["use scrypto::prelude::*;", "$1"],
     "description": "Import the Scrypto Library"
+  },
+  "Create Blueprint": {
+    "prefix": "blueprint",
+    "body": [
+      "use scrypto::prelude::*;",
+      "",
+      "blueprint! { ",
+      " struct ${1:BlueprintName} {",
+      " }",
+      "",
+      " impl ${1:BlueprintName} {",
+      "   pub fn ${2:new}() -> ComponentAddress {",
+      "     Self {}",
+      "     .instantiate()",
+      "     .globalize()",
+      "   }",
+      " }",
+      "}",
+      "$0"
+    ],
+    "description": "Scaffold a Scrypto blueprint"
   }
 }

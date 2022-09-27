@@ -4,7 +4,8 @@ This is the beginning of the Scrypto Snippets VS Code extension. If you would li
 
 ## Features
 
-Start typing scrypto in a rust file to test the first snippet a scrypto use statement.
+Start typing scrypto in a rust file to test the first snippet a scrypto use statement. `use scrypto::prelude::*;`
+`blueprint` Will scaffold a basic blueprint with `new()` instantiation function stubbed out.
 
 ## Requirements
 

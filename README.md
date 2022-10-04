@@ -6,11 +6,19 @@ This is the beginning of the Scrypto Snippets VS Code extension. If you would li
 
 Start typing scrypto in a rust file to test the first snippet a scrypto use statement. `use scrypto::prelude::*;`
 
+All of the snippets are set with tab stops for renaming default placeholders.
+
 `blueprint` Will scaffold a basic blueprint with `new()` instantiation function stubbed out.
 
-`token` will scaffold a fungible token
+`token` will scaffold a fungible token.
 
-`badge` Will scaffold a fungible badge
+`badge` Will scaffold a fungible badge.
+
+`vault_struct` Will generate the vault declaration for your blueprint stuct.
+
+`vault_empty` Will generate an empty vault constructor.
+
+`vault_w_bucket` Will generate a vault with bucket constructor.
 
 ## Requirements
 

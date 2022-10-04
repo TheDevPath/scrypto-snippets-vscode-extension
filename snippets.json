@@ -43,9 +43,24 @@
       "let ${1:badge_name}: Bucket = ResourceBuilder::new_fungible()",
       "     .divisibility(DIVISIBILITY_NONE)",
       "     .metadata(\"name\", \"${2:Admin Badge}\")",
-      "     .initial_supply($3);",
+      "     .initial_supply(${3:1});",
       "$0"
     ],
+    "description": "Scaffold a fungible badge"
+  },
+  "Struct Vault": {
+    "prefix": "vault_struct",
+    "body": ["${1:vault_name}: Vault,"],
+    "description": "Scaffold a fungible badge"
+  },
+  "Vault Empty Constructor": {
+    "prefix": "vault_empty",
+    "body": ["${1:vault_name}: Vault::new(${2:empty_vault}),"],
+    "description": "Scaffold a fungible badge"
+  },
+  "Vault w/Bucket Constructor": {
+    "prefix": "vault_w_bucket",
+    "body": ["${1:vault_name}: Vault::with_bucket(${2:bucket_name}),"],
     "description": "Scaffold a fungible badge"
   }
 }

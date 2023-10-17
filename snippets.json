@@ -9,14 +9,16 @@
     "body": [
       "use scrypto::prelude::*;",
       "",
-      "blueprint! { ",
-      " struct ${1:BlueprintName} {",
+      "#[blueprint]",
+      " mod ${1: module_name} { ",
+      " struct ${2:BlueprintName} {",
       " }",
       "",
-      " impl ${1:BlueprintName} {",
-      "   pub fn ${2:new}() -> ComponentAddress {",
+      " impl ${2:BlueprintName} {",
+      "   pub fn ${3:new}() -> Global<${2:BlueprintName}> {",
       "     Self {}",
       "     .instantiate()",
+      "     .prepare_to_globalize(OwnerRole::None)",
       "     .globalize()",
       "   }",
       " }",
@@ -28,11 +30,16 @@
   "Create Token": {
     "prefix": "token",
     "body": [
-      "let ${1:token_name}: Bucket = ResourceBuilder::new_fungible()",
+      "let ${1:token_name}: Bucket = ResourceBuilder::new_fungible(OwnerRole::${2|None,Fixed,Updatable|})",
       "     .divisibility(DIVISIBILITY_MAXIMUM)",
-      "     .metadata(\"name\", \"${2:Token Name}\")",
-      "     .metadata(\"symbol\", \"${3:SYM}\")",
-      "     .initial_supply($4);",
+      "     .metadata( metadata! {",
+      "         init { ",
+      "               \"name\" => \"${3:Token Name}\", locked;",
+      "               \"symbol\" => \"${4:SYM}\", locked;",
+      "          }",
+      "     })",
+      "     .mint_initial_supply($5)",
+      "     .into();",
       "$0"
     ],
     "description": "Scaffold a fungible token"
@@ -42,8 +49,13 @@
     "body": [
       "let ${1:badge_name}: Bucket = ResourceBuilder::new_fungible()",
       "     .divisibility(DIVISIBILITY_NONE)",
-      "     .metadata(\"name\", \"${2:Admin Badge}\")",
-      "     .initial_supply(${3:1});",
+      "     .metadata( metadata! {",
+      "         init { ",
+      "               \"name\" => \"${2:Admin Badge}\", locked;",
+      "          }",
+      "     })",
+      "     .mint_initial_supply(${3:1})",
+      "     .into();",
       "$0"
     ],
     "description": "Scaffold a fungible badge"
